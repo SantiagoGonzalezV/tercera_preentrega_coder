@@ -1,0 +1,402 @@
+// main.scss
+@import 'variables';
+@import 'mixins';
+@import 'reset';
+
+body {
+  background-color: $secondary-color;
+  color: $text-color;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+.logo {
+  img {
+    max-width: 100%;
+    height: 10px;
+  }
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.testimonio {
+  @include flex-center;
+  flex-direction: column;
+  margin-bottom: 2rem;
+  text-align: center;
+
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+  }
+
+  h3 {
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    margin: 0;
+    padding: 0 1rem;
+  }
+}
+
+form {
+  margin-top: 2rem;
+  padding: 2rem;
+  background-color: $background-color;
+  border-radius: 8px;
+
+  .form-control,
+  .form-select {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  .form-select {
+    appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="black" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+    background-repeat: no-repeat;
+    background-position-x: 98%;
+    background-position-y: 50%;
+  }
+
+  .btn {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+
+    &-primary {
+      @include button-style($primary-color, $secondary-color);
+
+      &:hover {
+        background-color: darken($primary-color, 10%);
+      }
+    }
+
+    &-secondary {
+      @include button-style(#555, $text-color);
+
+      &:hover {
+        background-color: darken(#555, 10%);
+      }
+    }
+  }
+}
+
+footer {
+  margin-top: 50px;
+  color: $text-color;
+  text-align: center;
+}
+
+main {
+  margin: 2rem auto;
+  max-width: 1200px;
+  padding: 0 2rem;
+
+  .demo {
+    @include flex-center;
+    justify-content: space-between;
+    padding: 4rem 2rem;
+    background-color: $secondary-color;
+    color: #ffffff;
+
+    .parrafo-demo,
+    .video-demo {
+      flex: 1;
+      max-width: 50%;
+      margin-bottom: 2rem;
+    }
+
+    .parrafo-demo {
+      padding-right: 2rem;
+      font-size: 1.2rem;
+    }
+
+    .video-demo {
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  .contenedor-boton {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .boton-demo {
+    @include button-style($primary-color, $secondary-color);
+    display: block;
+    margin: 0 auto 2rem;
+    width: fit-content;
+
+    &:hover {
+      background-color: darken($primary-color, 10%);
+    }
+  }
+}
+
+.producto {
+  @include flex-center;
+  justify-content: space-between;
+  padding: 4rem 2rem;
+  background-color: $secondary-color;
+  color: #ffffff;
+
+  .text-content,
+  .app-preview {
+    flex: 1;
+    max-width: 50%;
+  }
+
+  .text-content {
+    padding-right: 2rem;
+
+    h2 {
+      font-size: 0.9rem;
+      color: #888;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-size: 3rem;
+      font-weight: bold;
+      margin-bottom: 2rem;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin-bottom: 2rem;
+
+      li {
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+        padding-left: 1.5rem;
+        position: relative;
+
+        &::before {
+          content: "—";
+          position: absolute;
+          left: 0;
+        }
+      }
+    }
+
+    p {
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+  }
+
+  .app-preview {
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+  }
+}
+
+.mapa {
+  @include flex-center;
+  width: 100%;
+  padding: 20px 0;
+
+  iframe {
+    max-width: 100%;
+    height: 300px;
+  }
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background-color: $secondary-color;
+
+  nav {
+    ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+
+      li {
+        a {
+          color: $text-color;
+          font-size: 1.2rem;
+          text-decoration: none;
+          transition: color 0.3s ease;
+
+          &:hover {
+            color: $primary-color;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+
+    nav ul {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  main {
+    .demo {
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem 1rem;
+
+      .parrafo-demo,
+      .video-demo {
+        max-width: 100%;
+        text-align: center;
+      }
+    }
+
+    .contenedor-boton {
+      text-align: center;
+    }
+  }
+
+  form {
+    padding: 1rem;
+
+    div {
+      width: 100%;
+    }
+
+    input[type="submit"],
+    input[type="reset"] {
+      width: 100%;
+      margin-top: 1rem;
+    }
+  }
+
+  .video-demo iframe {
+    width: 100%;
+    height: auto;
+  }
+
+  .parrafo-demo {
+    text-align: center;
+    padding: 1rem;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  header {
+    padding: 15px 0;
+
+    .container {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .logo-container {
+      margin-bottom: 15px;
+    }
+
+    nav ul {
+      justify-content: center;
+    }
+  }
+
+  main {
+    .container {
+      padding: 0 20px;
+    }
+
+    h1 {
+      font-size: 28px;
+    }
+
+    .demo-section {
+      flex-direction: column;
+
+      .text-content,
+      .video-demo {
+        width: 100%;
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+  .testimonio {
+    @include flex-center;
+    flex-direction: column;
+    margin-bottom: 2rem;
+    text-align: center;
+  
+    img {
+      width: $testimonio-image-size;
+      height: $testimonio-image-size;
+      object-fit: cover; // Esto asegura que la imagen cubra todo el espacio sin distorsionarse
+      border-radius: 50%; // Esto hace la imagen redonda
+      margin-bottom: 1rem;
+    }
+  
+    h3 {
+      margin-top: 1rem;
+      margin-bottom: 0.5rem;
+    }
+  
+    p {
+      margin: 0;
+      padding: 0 1rem;
+    }
+  }
+
+  .producto {
+    .text-content,
+    .app-preview {
+      width: 100%;
+    }
+  }
+
+  .form-container {
+    padding: 0 20px;
+
+    .form-row {
+      flex-direction: column;
+    }
+
+    .form-group {
+      width: 100%;
+      margin-bottom: 15px;
+    }
+  }
+
+  footer {
+    .container {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .social-links {
+      margin-top: 15px;
+    }
+  }
+}
